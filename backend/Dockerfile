@@ -1,7 +1,12 @@
 FROM node:18-alpine
 
 WORKDIR /app
-COPY . .
+
+COPY package*.json ./
 RUN npm install
 
-CMD ["node", "server.js"]  # Or your entry file
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "index.js"]
